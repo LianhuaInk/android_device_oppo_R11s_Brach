@@ -25,25 +25,9 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-#ifdef VENDOR_EDIT
-#Bin.Yan@PWS.AD.BuildConfig.BaseConfig, 2017/01/07, Add for oppo devices
-import /init.oppo.rc
-#endif  /* VENDOR_EDIT */
-
 import /vendor/etc/init/hw/init.qcom.usb.rc
 import /vendor/etc/init/hw/init.msm.usb.configfs.rc
 import /vendor/etc/init/hw/init.target.rc
-import /vendor/etc/init/hw/init.qcom.factory.rc
-import /vendor/etc/init/hw/init.qcom.test.rc
-#ifdef VENDOR_EDIT
-#Junhao.Liang@PSW.AD.OppoDebug.LogKit.1080426, 2018/12/04, Add for import init.oppo.debug.diag.rc
-import /vendor/etc/init/hw/init.oppo.debug.diag.rc
-#endif /*COLOROS_EDIT*/
-
-#ifdef VENDOR_EDIT
-#JianRong.Zheng@PSW.AD.EngineeringMode.0, 2016/10/01, Add for init engineermode rc
-import init.oppo.engineermode.rc
-#endif
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug

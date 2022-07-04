@@ -15,6 +15,43 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a73
 
+# Assert
+TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
+TARGET_OTA_ASSERT_DEVICE := R11s
+
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_QCOM := true
+QCOM_BT_USE_BTNV := true
+TARGET_USE_QTI_BT_STACK := true
+
+# Camera
+TARGET_USES_QTI_CAMERA_DEVICE := true
+USE_DEVICE_SPECIFIC_CAMERA := true
+
+# Charger
+BOARD_CHARGER_ENABLE_SUSPEND := true
+
+# DRM
+TARGET_ENABLE_MEDIADRM_64 := true
+
+# Graphics
+MAX_EGL_CACHE_KEY_SIZE := 12*1024
+MAX_EGL_CACHE_SIZE := 2048*1024
+MAX_VIRTUAL_DISPLAY_DIMENSION := 4096
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
+TARGET_USES_GRALLOC1 := true
+TARGET_USES_HWC2 := true
+TARGET_USES_ION := true
+
+# Media
+TARGET_USES_MEDIA_EXTENSIONS := true
+
+# Keystore
+TARGET_PROVIDES_KEYMASTER := true
+
 # Platform
 TARGET_BOARD_PLATFORM := sdm660
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno512
@@ -27,6 +64,7 @@ TARGET_NO_BOOTLOADER := true
 TARGET_USES_64_BIT_BINDER := true
 
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200,n8,androidboot.console=ttyMSM0,earlycon=msm_serial_dm,0xc170000,androidboot.hardware=qcom,user_debug=31,msm_rtb.filter=0x37,ehci-hcd.park=3,lpm_levels.sleep_disabled=1,sched_enable_hmp=1,sched_enable_power_aware=1,service_locator.enable=1,swiotlb=1,firmware_class.path=/vendor/firmware_mnt/image,loop.max_part=7
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096
 BOARD_KERNEL_OFFSET      := 0x00008000
@@ -91,7 +129,8 @@ BOARD_ROOT_EXTRA_SYMLINKS := \
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 
 # Sepolicy
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
+include device/qcom/sepolicy/sepolicy.mk
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
 # Security patch level
 VENDOR_SECURITY_PATCH := 2020-05-05
@@ -105,5 +144,23 @@ TARGET_COPY_OUT_VENDOR := vendor
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/framework_compatibility_matrix.xml
+
+# Wifi
+BOARD_HAS_QCOM_WLAN := true
+BOARD_HAS_QCOM_WLAN_SDK := true
+BOARD_WLAN_DEVICE := qcwcn
+BOARD_HOSTAPD_DRIVER := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+WIFI_DRIVER_FW_PATH_AP := "ap"
+WIFI_DRIVER_FW_PATH_STA := "sta"
+WIFI_DRIVER_FW_PATH_P2P := "p2p"
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+WIFI_DRIVER_STATE_CTRL_PARAM := "/dev/wlan"
+WIFI_DRIVER_STATE_ON := "ON"
+WIFI_DRIVER_STATE_OFF := "OFF"
+WIFI_DRIVER_BUILT := qca_cld3
+WIFI_DRIVER_DEFAULT := qca_cld3
 
 -include vendor/oppo/R11s/BoardConfigVendor.mk

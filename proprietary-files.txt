@@ -3291,6 +3291,7 @@ vendor/lib64/libOmxVenc.so
 vendor/lib64/libstagefrighthw.so
 
 # Oppo
+vendor/bin/oppoalgo_daemon
 vendor/bin/hw/vendor.oppo.engnative.engsensor@1.0-service
 vendor/bin/hw/vendor.oppo.engnative.messager@1.0-service
 vendor/bin/hw/vendor.oppo.hardware.cryptoeng@1.0-service

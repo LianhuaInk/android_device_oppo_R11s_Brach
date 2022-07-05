@@ -264,15 +264,6 @@ on boot
     # Create hvdcp_opti directory
     mkdir /mnt/vendor/persist/hvdcp_opti 0770 root system
 
-    #ifdef VENDOR_EDIT
-    #Jiemin.Zhu@PSW.AD.SELinux.1662876, 2019/12/03, Add for vts bug
-    chmod 0664 /sys/class/leds/lcd-backlight/brightness
-    chown system system /sys/class/leds/lcd-backlight/brightness
-    chown system system /sys/class/leds/white/brightness
-    chown system system /sys/class/leds/button-backlight/brightness
-    chown system system /sys/class/leds/white/blink
-    #endif
-
 # msm specific files that need to be created on /data
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system

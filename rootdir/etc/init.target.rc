@@ -116,13 +116,13 @@ on boot
     setprop sys.usb.configfs 1
 
 #Peripheral manager
-service vendor.per_mgr /system/vendor/bin/pm-service
+service vendor.per_mgr /vendor/bin/pm-service
     class core
     user system
     group system
     ioprio rt 4
 
-service vendor.per_proxy /system/vendor/bin/pm-proxy
+service vendor.per_proxy /vendor/bin/pm-proxy
     class core
     user system
     group system
@@ -172,7 +172,7 @@ service vendor.qseecomd /vendor/bin/qseecomd
    user root
    group root
 
-#service mpdecision /system/vendor/bin/mpdecision --avg_comp
+#service mpdecision /vendor/bin/mpdecision --avg_comp
 #   user root
 #   disabled
 #
@@ -181,7 +181,7 @@ service vendor.qseecomd /vendor/bin/qseecomd
 #   group system
 #   disabled
 #
-service thermal-engine /system/vendor/bin/thermal-engine
+service thermal-engine /vendor/bin/thermal-engine
    class main
    user root
    socket thermal-send-client stream 0666 system system
@@ -198,7 +198,7 @@ service thermal-engine /system/vendor/bin/thermal-engine
 #    class core
 #    oneshot
 #
-service time_daemon /system/vendor/bin/time_daemon
+service time_daemon /vendor/bin/time_daemon
    class late_start
    user root
    group root
@@ -215,13 +215,13 @@ service adsprpcd /vendor/bin/adsprpcd audiopd
 
 #ifndef VENDOR_EDIT
 #Ping.Zhang@psw.bsp.tp 2019/06/04 del for closing hbtp
-#service hbtp /system/vendor/bin/hbtp_daemon
+#service hbtp /vendor/bin/hbtp_daemon
 #    class main
 #    user system
 #    group system
 #    disabled
 
-service audiod /system/vendor/bin/audiod
+service audiod /vendor/bin/audiod
    class late_start
    user system
    group system
@@ -233,44 +233,44 @@ service vendor.cdsprpcd /vendor/bin/cdsprpcd
    disabled
 
 #
-#service usf_tester /system/vendor/bin/usf_tester
+#service usf_tester /vendor/bin/usf_tester
 #    user system
 #    group system inet
 #    disabled
 #
-#service usf_epos /system/vendor/bin/usf_epos
+#service usf_epos /vendor/bin/usf_epos
 #    user system
 #    group system inet
 #    disabled
 #
-#service usf_gesture /system/vendor/bin/usf_gesture
-#    user system
-#    group system inet
-#    disabled
-#
-
-#service usf_sync_gesture /system/vendor/bin/usf_sync_gesture
+#service usf_gesture /vendor/bin/usf_gesture
 #    user system
 #    group system inet
 #    disabled
 #
 
-#service usf_p2p /system/vendor/bin/usf_p2p
+#service usf_sync_gesture /vendor/bin/usf_sync_gesture
 #    user system
 #    group system inet
 #    disabled
 #
-#service usf_hovering /system/vendor/bin/usf_hovering
+
+#service usf_p2p /vendor/bin/usf_p2p
 #    user system
 #    group system inet
 #    disabled
 #
-#service usf_proximity /system/vendor/bin/usf_proximity
+#service usf_hovering /vendor/bin/usf_hovering
 #    user system
 #    group system inet
 #    disabled
 #
-#service usf-post-boot /system/vendor/bin/sh /system/etc/usf_post_boot.sh
+#service usf_proximity /vendor/bin/usf_proximity
+#    user system
+#    group system inet
+#    disabled
+#
+#service usf-post-boot /vendor/bin/sh /system/etc/usf_post_boot.sh
 #    class late_start
 #    user root
 #    disabled
@@ -296,14 +296,14 @@ service vendor.cdsprpcd /vendor/bin/cdsprpcd
 #
 #
 ## imsdatadaemon starts with root and UID will be downgraded to SYSTEM.
-service vendor.imsqmidaemon /system/vendor/bin/imsqmidaemon
+service vendor.imsqmidaemon /vendor/bin/imsqmidaemon
     class main
     user system
     socket ims_qmid stream 0660 system radio
     group radio log diag
 
 # imsdatadaemon starts with root and UID will be downgraded to SYSTEM.
-service vendor.imsdatadaemon /system/vendor/bin/imsdatadaemon
+service vendor.imsdatadaemon /vendor/bin/imsdatadaemon
     class main
     user system
     socket ims_datad stream 0660 system radio
@@ -347,32 +347,32 @@ service vendor.imsdatadaemon /system/vendor/bin/imsdatadaemon
 #    start mdm_helper_proxy
 #
 ## QCA1530 SoC core detect
-#service gnss-detect /system/vendor/bin/gnss.qca1530.sh detect
+#service gnss-detect /vendor/bin/gnss.qca1530.sh detect
 #   class core
 #   oneshot
 
-service energy-awareness /system/vendor/bin/energy-awareness
+service energy-awareness /vendor/bin/energy-awareness
     class main
     user system
     group system
     oneshot
 
-service mdtpd /system/vendor/bin/mdtpd
+service mdtpd /vendor/bin/mdtpd
     class late_start
     user root
     group system radio drmrpc
 
-service vendor.pd_mapper /system/vendor/bin/pd-mapper
+service vendor.pd_mapper /vendor/bin/pd-mapper
      class core
 
 #
 ## QCA1530 SoC late_start group trigger
-#service gnss-init /system/vendor/bin/gnss.qca1530.sh init
+#service gnss-init /vendor/bin/gnss.qca1530.sh init
 #   class late_start
 #   oneshot
 #
 ## QCA1530 SoC Service Daemon
-#service gnss-svcd /system/vendor/bin/gnss.qca1530.sh start
+#service gnss-svcd /vendor/bin/gnss.qca1530.sh start
 #   class late_start
 #   user root
 #   group gps system qcom_diag diag log inet net_raw
@@ -388,7 +388,7 @@ on property:vendor.ims.QMI_DAEMON_STATUS=1
 #  start cnss_diag
 #endif
 
-service cnss_diag /system/vendor/bin/cnss_diag -q -f -t HELIUM
+service cnss_diag /vendor/bin/cnss_diag -q -f -t HELIUM
    class main
    user system
    group system wifi inet sdcard_rw media_rw diag
@@ -412,7 +412,7 @@ on property:vendor.wifi.ftm=1
     stop cnss_diag
     stop cnss_diag_b
 
-service cnss_diag_b /system/vendor/bin/cnss_diag -q -u -w -b 4096
+service cnss_diag_b /vendor/bin/cnss_diag -q -u -w -b 4096
     class main
     user system
     group system wifi inet net_admin sdcard_rw media_rw diag
@@ -423,12 +423,12 @@ on property:vold.decrypt=trigger_restart_framework && property:persist.sys.asser
     start cnss_diag
 #endif /* VENDOR_EDIT */
 
-service vendor.ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
+service vendor.ims_rtp_daemon /vendor/bin/ims_rtp_daemon
    class main
    user system
    group radio diag inet log
 
-service vendor.imsrcsservice /system/vendor/bin/imsrcsd
+service vendor.imsrcsservice /vendor/bin/imsrcsd
    class main
    user system
    group radio diag inet log wakelock
@@ -437,7 +437,7 @@ on property:vendor.ims.DATA_DAEMON_STATUS=1
     restart vendor.ims_rtp_daemon
 
 
-service ppd /system/vendor/bin/mm-pp-dpps
+service ppd /vendor/bin/mm-pp-dpps
     class late_start
     user system
     group system graphics
@@ -476,7 +476,7 @@ on charger
 #    user system
 #    group drmrpc
 #
-#service adsprpcd /system/vendor/bin/adsprpcd
+#service adsprpcd /vendor/bin/adsprpcd
 #   class main
 #   user media
 #   group media
@@ -501,7 +501,7 @@ service vendor.tlocd /vendor/bin/tloc_daemon
 
 #ifndef VENDOR_EDIT
 #Ji.Xu@BSP.CHG.Basic, 2018/10/18 Delete for disable hvdcp,not support
-#service vendor.hvdcp_opti /system/vendor/bin/hvdcp_opti
+#service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
 #     class main
 #     user root
 #     group system wakelock

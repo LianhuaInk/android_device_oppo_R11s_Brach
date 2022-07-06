@@ -118,6 +118,10 @@ TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false
 # Properties
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
+# Releasetools
+TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_R11s
+TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
+
 # Root Directories
 BOARD_ROOT_EXTRA_SYMLINKS := \
     /mnt/vendor/persist:/persist \

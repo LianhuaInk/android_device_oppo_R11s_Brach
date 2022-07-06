@@ -306,12 +306,7 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/nfc-nci              0660    nfc         nfc
 /dev/nq-nci               0660    nfc         nfc
 /dev/assd                 0660    nfc         nfc
-/dev/p73                  0660    secure_element         secure_element
-/dev/pn544                0660    nfc         nfc
-#ifdef VENDOR_EDIT
-#wenjie.Liu@Connectivity.CN.NFC.BASIC.Hardware.1182186, 2018/02/13,
-/dev/cxd224x-i2c          0660    nfc         nfc
-#end VENDOR_EDIT
+
 # UIO devices
 /dev/uio0                 0660   system     system
 /dev/uio1                 0660   system     system
@@ -372,10 +367,6 @@ firmware_directories /vendor/firmware_mnt/image/
 #Memory Offline
 /sys/devices/system/memory/memory* state    0660 system system
 
-#ifdef VENDOR_EDIT
-#liangkun@Swdp.shanghai 2017.05.18, change default owner for /dev/kneuron node
-/dev/kneuron              0660   system     system
-#endif /* VENDOR_EDIT */
 # sys-fs display
 /sys/class/graphics/fb*     hpd                      0664    system  graphics
 /sys/class/graphics/fb*     res_info                 0664    system  graphics

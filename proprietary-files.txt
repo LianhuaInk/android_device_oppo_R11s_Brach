@@ -2945,8 +2945,8 @@ vendor/firmware/cryptoeng.b07
 vendor/firmware/cryptoeng.mdt
 vendor/firmware/dpAP_full.mbn
 vendor/firmware/dpAP_mini.mbn
-vendor/firmware/emmc/HYNIX-hB8aP>.bin_crc.bin
-vendor/firmware/emmc/HYNIX-hC8aP>.bin_crc.bin
+vendor/firmware/emmc/HYNIX-hB8aP.bin_crc.bin
+vendor/firmware/emmc/HYNIX-hC8aP.bin_crc.bin
 vendor/firmware/emmc/HYNIX-HCG8a4.bin_crc.bin
 vendor/firmware/emmc/HYNIX-hDEaP3.bin_crc.bin
 vendor/firmware/emmc/move_target_emmc_fw_to_opporeserve1.sh
@@ -2984,8 +2984,6 @@ vendor/firmware/tp/18323/18323_Limit_data.img
 # GPS
 etc/permissions/com.qti.location.sdk.xml
 etc/permissions/com.qualcomm.location.xml
-etc/permissions/izat.xt.srv.xml
-etc/permissions/privapp-permissions-com.qualcomm.location.xml
 -framework/com.qti.location.sdk.jar
 -framework/izat.xt.srv.jar
 lib64/liblocationservice_jni.so
@@ -3720,7 +3718,6 @@ vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 vendor/bin/hw/android.hardware.thermal@1.0-service
 vendor/bin/thermal-engine
 vendor/etc/init/android.hardware.thermal@1.0-service.rc
-vendor/etc/thermal-engine.conf
 vendor/lib/hw/android.hardware.thermal@1.0-impl.so
 vendor/lib/libthermalclient.so
 vendor/lib64/hw/android.hardware.thermal@1.0-impl.so
@@ -3783,7 +3780,6 @@ vendor/lib64/vendor.qti.voiceprint@1.0.so
 etc/init/wfdservice.rc
 etc/wfdconfig.xml
 etc/wfdconfigsink.xml
--framework/WfdCommon.jar
 lib/com.qualcomm.qti.wifidisplayhal@1.0.so
 lib/libwfdavenhancements.so
 lib/libwfdclient.so

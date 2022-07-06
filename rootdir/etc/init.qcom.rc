@@ -1336,25 +1336,6 @@ service prop-adap-main-gsi /vendor/bin/self-init gsimain
     group root system radio
     oneshot
 
-
-on property:ro.oppo.reconcile_media_resource=1
-#endif
-
-#ifdef VENDOR_EDIT
-#Haibing.Wang@AD.CTS.1626045, 2018/12/24, Add for Android P VTS fingerprint
-on property:ro.vendor.oppo.fingerprint=*
-    setprop ro.vendor.build.fingerprint ${ro.vendor.oppo.fingerprint}
-on property:ro.vendor.oppo.product.manufacturer=*
-    setprop ro.product.vendor.manufacturer ${ro.vendor.oppo.product.manufacturer}
-on property:ro.vendor.oppo.product.model=*
-    setprop ro.product.vendor.model ${ro.vendor.oppo.product.model}
-on property:ro.vendor.oppo.product.brand=*
-    setprop ro.product.vendor.brand ${ro.vendor.oppo.product.brand}
-on property:ro.vendor.oppo.product.name=*
-    setprop ro.product.vendor.name ${ro.vendor.oppo.product.name}
-on property:ro.vendor.oppo.product.device=*
-    setprop ro.product.vendor.device ${ro.vendor.oppo.product.device}
-#endif
 service vendor.contexthub-hal-1-0 /vendor/bin/hw/android.hardware.contexthub@1.0-service
     override
     class hal

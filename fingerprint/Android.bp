@@ -1,7 +1,7 @@
 cc_binary {
-    name: "android.hardware.biometrics.fingerprint@2.1-service.oppo.compat",
+    name: "android.hardware.biometrics.fingerprint@2.1-service.oppo_sdm660",
     defaults: ["hidl_defaults"],
-    init_rc: ["android.hardware.biometrics.fingerprint@2.1-service.oppo.rc"],
+    init_rc: ["android.hardware.biometrics.fingerprint@2.1-service.oppo_sdm660.rc"],
     relative_install_path: "hw",
     srcs: [
         "BiometricsFingerprint.cpp",
@@ -14,10 +14,12 @@ cc_binary {
         "libcutils",
         "liblog",
         "libhidlbase",
+        "libhidltransport",
         "libhardware",
         "libutils",
         "libbase",
         "android.hardware.biometrics.fingerprint@2.1",
         "vendor.oppo.hardware.biometrics.fingerprint@2.1",
     ],
+    proprietary: true,
 }

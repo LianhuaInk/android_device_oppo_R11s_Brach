@@ -10,7 +10,7 @@
 
 # Fingerprint
 /data/system/users/0/fpdata(/.*)?                                                                       u:object_r:fingerprintd_data_file:s0
-/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.oppo_sdm660-compat              u:object_r:hal_fingerprint_sdm660_exec:s0
+/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.oppo_sdm660              u:object_r:hal_fingerprint_sdm660_exec:s0
 /vendor/bin/hw/vendor\.oppo\.hardware\.biometrics\.fingerprint@2\.1-service                             u:object_r:hal_fingerprint_oppo_exec:s0
 
 # Light

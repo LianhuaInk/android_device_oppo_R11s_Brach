@@ -1,8 +1,8 @@
 [
   {
-    "repository": "color597/android_kernel_oppo_r11",
+    "repository": "J-J1/android_kernel_oppo_sdm660",
     "target_path": "kernel/oppo/sdm660"
-    "branch": "android-9-rebased"
+    "branch": "android-9-color597-rebased"
   },
   {
     "repository": "J-J1/proprietary_vendor_oppo_R11s",

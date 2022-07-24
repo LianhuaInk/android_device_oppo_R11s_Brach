@@ -2,6 +2,7 @@ Device Tree for OPPO R11s / OPPO R11s Plus
 ===========================================
 
 The OPPO R11s / OPPO R11s Plus (codenamed _"R11s"_) is a mid-range smartphone from OPPO.
+
 It was announced in October 2017. Release date was in November 2017.
 
 ## Device specifications

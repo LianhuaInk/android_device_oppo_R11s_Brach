@@ -203,8 +203,22 @@ case "$target" in
                                     setprop qemu.hw.mainkeys 0
                                     ;;
                        "MTP")
-                                    setprop qemu.hw.mainkeys 0
-                                    ;;
+                                #ifdef VENDOR_EDIT
+                                #Haiping.Zhong@PSW.AD.BuildConfig.1071093, 2018/04/23, Modify for Close virtual keys
+                                project_name=`cat /proc/oppoVersion/prjVersion`
+                                case "$project_name" in
+                                        "16051" | "16052" | "16102" | "16103" | "16116" | "16118" )
+                                        setprop qemu.hw.mainkeys 1
+                                        ;;
+                                     *)
+                                        setprop qemu.hw.mainkeys 0
+                                        ;;
+                                esac
+                                 ;;
+                                #else
+                                #   setprop qemu.hw.mainkeys 0
+                                #   ;;
+                                #endif
                        "RCM")
                                     setprop qemu.hw.mainkeys 0
                                     ;;
